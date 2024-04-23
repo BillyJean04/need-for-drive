@@ -8,7 +8,8 @@
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "typecheck": "tsc",
-    "lint": "eslint **/**.{ts,tsx}"
+    "lint": "eslint **/**.{ts,tsx}",
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {
