@@ -7,7 +7,8 @@
     "start": "webpack serve --env mode=development",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "eslint **/**.{ts,tsx}"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
@@ -65,5 +66,8 @@
     "react-router-dom": "^6.22.3",
     "styled-components": "^6.1.8",
     "swiper": "^11.1.1"
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1"
   }
 }
