@@ -1,4 +1,5 @@
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import Dotenv from "dotenv-webpack";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -16,6 +17,7 @@ export default function buildPlugins(options: BuildOptions): Configuration["plug
 
   const plugins: Configuration["plugins"] = [
     new HtmlWebpackPlugin({ template: paths.html, favicon: path.resolve(paths.public, "favicon.ico") }),
+    new Dotenv(),
   ];
 
   if (isDev) {

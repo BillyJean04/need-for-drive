@@ -5,7 +5,7 @@ import OrderPage from "@/pages/OrderPage/OrderPage";
 
 export const router = createBrowserRouter([
   {
-    path: "*",
+    path: process.env.NODE_ENV === "production" ? process.env.PRODUCTION_PROJECT_ROOT : "/",
     element: <MainPage />,
   },
   {
