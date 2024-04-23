@@ -5,25 +5,15 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { slideItems } from "@/components/MainPageSlider/constants";
 import {
   StyledMainPageSliderContainer,
   StyledMainPageSliderContent,
   StyledSliderImage,
 } from "@/components/MainPageSlider/MainPageSlider.styled";
 import { Button } from "@/components/ui";
-import { ButtonColors } from "@/types";
 
-interface MainPageSliderProps {
-  items: {
-    id: number;
-    title: string;
-    subtitle: string;
-    image: string;
-    buttonColor: ButtonColors;
-  }[];
-}
-
-export function MainPageSlider({ items }: MainPageSliderProps) {
+export function MainPageSlider() {
   return (
     <StyledMainPageSliderContainer>
       <Swiper
@@ -43,7 +33,7 @@ export function MainPageSlider({ items }: MainPageSliderProps) {
           position: "relative",
         }}
       >
-        {items.map(({ id, subtitle, title, image, buttonColor }) => (
+        {slideItems.map(({ id, subtitle, title, image, buttonColor }) => (
           <SwiperSlide key={id}>
             <StyledMainPageSliderContent>
               <h2>{title}</h2>
