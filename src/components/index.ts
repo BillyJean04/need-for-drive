@@ -1,4 +1,3 @@
-export * from "./BurgerMenu";
 export * from "./ChangeLanguage";
 export * from "./Header";
 export * from "./MainPageContent";
