@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import Image from "../../assets/back.png";
-
 export const StyledBurgerContainer = styled.div`
   z-index: 100;
   margin-left: 20px;
@@ -64,23 +62,28 @@ export const StyledMenu = styled.nav<{ $isOpen: boolean }>`
   flex-direction: column;
   gap: 25px;
   justify-content: flex-start;
-  background: url(${Image}) no-repeat;
+  background: black;
   background-size: cover;
   transform: ${({ $isOpen }) => ($isOpen ? "translateX(0)" : "translateX(-150%)")};
   height: 100vh;
-  width: 100%;
+  //width: 100%;
   text-align: left;
   padding-top: 80px;
   padding-left: 28px;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 21;
   transition: transform 0.3s ease-in-out;
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    width: 100% !important;
+  }
 
   @media (min-width: ${({ theme }) => theme.device.mobileL}) {
     justify-content: center;
     padding-left: 128px;
+    width: 52.3%;
   }
 
   span {
@@ -108,6 +111,15 @@ export const StyledMenu = styled.nav<{ $isOpen: boolean }>`
       }
     }
   }
+`;
+
+export const StyledMenuBlur = styled.div<{ $isOpen: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 27, 31, 0.81);
+  z-index: 20;
 `;
 
 export const StyledSocialIcons = styled.div`

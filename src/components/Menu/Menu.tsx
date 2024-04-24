@@ -1,7 +1,13 @@
 import { useState } from "react";
 
 import { ChangeLanguage } from "@/components";
-import { StyledBurger, StyledBurgerContainer, StyledMenu, StyledSocialIcons } from "@/components/Menu/Menu.styled";
+import {
+  StyledBurger,
+  StyledBurgerContainer,
+  StyledMenu,
+  StyledMenuBlur,
+  StyledSocialIcons,
+} from "@/components/Menu/Menu.styled";
 
 import Facebook from "../../assets/facebook.svg";
 import Instagram from "../../assets/instagram.svg";
@@ -53,6 +59,7 @@ export function Menu() {
         </StyledSocialIcons>
         <ChangeLanguage $isOpen={isOpen} />
       </StyledMenu>
+      <StyledMenuBlur $isOpen={isOpen} />
     </>
   );
 }
