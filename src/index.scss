@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  --swiper-navigation-sides-offset: 0px;
 }
 
 body {
@@ -56,4 +57,5 @@ p {
 .swiper-button-prev:after {
   font-size: 20px !important;
 }
+
 
