@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { ChangeLanguage } from "@/components";
 import { StyledBurger, StyledBurgerContainer, StyledMenu, StyledSocialIcons } from "@/components/Menu/Menu.styled";
 
 import Facebook from "../../assets/facebook.svg";
@@ -7,7 +8,6 @@ import Instagram from "../../assets/instagram.svg";
 import Telegram from "../../assets/telegram.svg";
 
 export function Menu() {
-  // const { isOpen } = useContext(MenuContext);
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -51,6 +51,7 @@ export function Menu() {
             </a>
           </span>
         </StyledSocialIcons>
+        <ChangeLanguage $isOpen={isOpen} />
       </StyledMenu>
     </>
   );
