@@ -62,18 +62,17 @@ export const StyledMenu = styled.nav<{ $isOpen: boolean }>`
   flex-direction: column;
   gap: 25px;
   justify-content: flex-start;
-  background: black;
+  background: ${({ theme }) => theme.colors.black};
   background-size: cover;
   transform: ${({ $isOpen }) => ($isOpen ? "translateX(0)" : "translateX(-150%)")};
   height: 100vh;
-  //width: 100%;
   text-align: left;
   padding-top: 80px;
   padding-left: 28px;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 21;
+  z-index: 26;
   transition: transform 0.3s ease-in-out;
 
   @media (max-width: ${({ theme }) => theme.device.laptop}) {
@@ -119,7 +118,7 @@ export const StyledMenuBlur = styled.div<{ $isOpen: boolean }>`
   width: 100%;
   height: 100%;
   background-color: rgba(21, 27, 31, 0.81);
-  z-index: 20;
+  z-index: 25;
 `;
 
 export const StyledSocialIcons = styled.div`
