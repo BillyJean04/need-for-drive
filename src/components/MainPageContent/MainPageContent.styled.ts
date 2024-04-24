@@ -26,6 +26,10 @@ export const MainContainer = styled.div`
     padding-bottom: 163px;
   }
 
+  @media (max-height: 624px) {
+    padding-bottom: 0;
+  }
+
   h1 {
     display: flex;
     flex-direction: column;

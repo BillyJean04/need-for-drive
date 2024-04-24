@@ -34,9 +34,11 @@ export const StyledMainPageSliderContent = styled.div`
 `;
 
 export const StyledSliderImage = styled.div`
+  height: 100%;
+
   img {
     width: 100%;
     height: 100%;
-    objectfit: cover;
+    object-fit: cover;
   }
 `;
