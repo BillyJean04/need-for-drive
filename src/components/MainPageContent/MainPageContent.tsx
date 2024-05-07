@@ -20,7 +20,7 @@ export function MainPageContent() {
           <span> Need for drive</span>
         </h1>
         <p>Поминутная аренда авто твоего города</p>
-        <Button onClick={() => navigate("/order")} $color="lightGreen">
+        <Button onClick={() => navigate("/location")} $color="lightGreen">
           Забронировать
         </Button>
       </MainContainer>

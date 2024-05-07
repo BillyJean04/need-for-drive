@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-export const StyledHeaderContainer = styled.div`
+export const StyledHeaderContainer = styled.div<{ $isLayout?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
   gap: 8px;
   width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.device.mobileL}) {
+    padding: ${({ $isLayout }) => $isLayout && "32px 32px 32px 128px"};
+  }
 
   padding: 16px;
 
@@ -31,6 +35,7 @@ export const StyledHeaderContainer = styled.div`
 
     span {
       color: ${({ theme }) => theme.colors.gray};
+      font-size: 14px;
     }
   }
 `;

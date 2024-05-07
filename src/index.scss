@@ -23,6 +23,15 @@ p {
   margin: 0;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 .swiper-pagination-bullet {
   background: #EEEEEE !important;
   opacity: 1 !important;
@@ -56,6 +65,32 @@ p {
 
 .swiper-button-prev:after {
   font-size: 20px !important;
+}
+
+
+
+.rbt-menu {
+  display: flex !important;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: 8px;
+  z-index: 100;
+  gap: 6px;
+  overflow: scroll;
+
+  a {
+    color: #999999;
+    text-decoration: none;
+
+    &:hover {
+      color: #0EC261;
+    }
+  }
+}
+
+input:disabled {
+  background-color: transparent;
 }
 
 

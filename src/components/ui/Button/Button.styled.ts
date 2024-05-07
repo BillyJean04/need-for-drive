@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 import { ButtonColors } from "@/types";
 
-export const StyledButton = styled.button<{ $color?: ButtonColors }>`
+export const StyledButton = styled.button<{ $color?: ButtonColors; $isLarge: boolean }>`
   display: flex;
   justify-content: center;
   border: none;
-  padding: 15px 60px;
+  padding: 15px ${({ $isLarge }) => ($isLarge ? "0" : "60px")};
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
   background: ${({ $color, theme }) => ($color ? theme.gradients[$color] : theme.gradients.green)};
