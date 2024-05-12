@@ -19,8 +19,6 @@ export default function App() {
             position="bottom-right"
             reverseOrder={false}
             gutter={8}
-            containerClassName=""
-            containerStyle={{}}
             toastOptions={{
               duration: 3000,
               style: {

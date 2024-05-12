@@ -5,10 +5,10 @@ export const StyledOrderItemContainer = styled.div`
   gap: 10px;
 
   margin-bottom: 16px;
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.fontSizes["font-14"]};
   line-height: 16px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${({ theme }) => theme.device.laptopM}) {
     flex-direction: column;
     gap: 2px;
     margin-bottom: 4px;
@@ -34,7 +34,7 @@ export const StyledDots = styled.span`
     line-height: 0;
     border-bottom: 2px dotted ${({ theme }) => theme.colors.gray};
   }
-  @media (max-width: 1200px) {
+  @media (max-width: ${({ theme }) => theme.device.laptopM}) {
     display: none;
   }
 
@@ -53,7 +53,7 @@ export const StyledOrderItem = styled.span`
 export const StyledStep = styled.span`
   align-self: flex-end;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${({ theme }) => theme.device.laptopM}) {
     align-self: flex-start;
   }
 
@@ -71,7 +71,7 @@ export const StyledItem = styled.div`
 
   color: ${({ theme }) => theme.colors.gray};
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${({ theme }) => theme.device.laptopM}) {
     align-items: flex-start;
     align-self: flex-start;
   }

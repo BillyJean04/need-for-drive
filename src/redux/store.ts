@@ -15,8 +15,8 @@ export const getOrderInfoData = createSelector([getFullLocation], (a) => ({
     color: "",
     duration: "",
     rate: "",
-    fullTank: false,
-    childSeat: false,
-    rightHandDrive: false,
+    isFullTank: false,
+    isNeedChildChair: false,
+    isRightWheel: false,
   },
 }));

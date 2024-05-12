@@ -1,9 +1,9 @@
 import { baseURL, Methods, Urls } from "@/utils/consts/urls";
 
-type Options = {
+interface Options {
   method: Methods;
   params?: string;
-};
+}
 
 export async function fetcher(url: Urls, options: Options) {
   try {

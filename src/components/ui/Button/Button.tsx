@@ -13,7 +13,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ $color, $isLarge = false, isLoading, children, ...props }: ButtonProps) {
   return (
-    <StyledButton $color={$color} $isLarge={$isLarge} {...props}>
+    <StyledButton
+      $disabled={props.disabled ?? false}
+      $color={$color}
+      $isLarge={$isLarge}
+      {...props}
+    >
       {isLoading ? <Loading /> : children}
     </StyledButton>
   );

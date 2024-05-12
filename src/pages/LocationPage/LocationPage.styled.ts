@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import mixins from "@/styles/mixins";
+
 export const LocationPageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,14 +40,13 @@ export const StyledTypeheadContainer = styled.div<{ $disabled?: boolean }>`
   }
 
   label {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes["font-14"]};
   }
 
   input {
     cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "normal")};
     outline: none;
-    color: ${({ theme }) => theme.colors.black};
-    font-size: 14px;
+    ${mixins.textMixin({ $color: "black", $fontSize: "font-14" })};
     padding: 3px 8px;
     border: none;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
@@ -57,4 +58,11 @@ export const StyledTypeheadContainer = styled.div<{ $disabled?: boolean }>`
     cursor: pointer;
     pointer-events: all;
   }
+`;
+
+export const StyledError = styled.span`
+  position: absolute;
+  inset: 30px 0 20px 0;
+  font-size: 12px;
+  color: red;
 `;

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { RootState } from "@/types";
 
-export type LocationSlice = {
+export interface LocationSlice {
   city: {
     id: number;
     name: string;
@@ -10,9 +10,11 @@ export type LocationSlice = {
   point: {
     id: number;
     address: string;
+    lat?: number;
+    lng?: number;
   };
   fullLocation: string;
-};
+}
 
 const initialState: LocationSlice = {
   city: {
@@ -22,6 +24,8 @@ const initialState: LocationSlice = {
   point: {
     id: 0,
     address: "",
+    lat: 0,
+    lng: 0,
   },
   fullLocation: "",
 };
@@ -42,6 +46,8 @@ export const locationSlice = createSlice({
       point: {
         id: 0,
         address: "",
+        lat: 0,
+        lng: 0,
       },
       fullLocation: "",
     }),
@@ -54,6 +60,8 @@ export const locationSlice = createSlice({
       point: {
         id: 0,
         address: "",
+        lat: 0,
+        lng: 0,
       },
       fullLocation: "",
     }),

@@ -12,7 +12,7 @@ export function Breadcrumbs() {
       <ul>
         {breadcrumbItems.map(({ id, name, href }, index) => (
           <StyledBreadcrumbContainer key={id}>
-            <BreadcrumbsItem key={id} name={name} href={href} index={index} />
+            <BreadcrumbsItem name={name} href={href} index={index} />
             <Arrow style={{ width: "6px", height: "8px" }} />
           </StyledBreadcrumbContainer>
         ))}

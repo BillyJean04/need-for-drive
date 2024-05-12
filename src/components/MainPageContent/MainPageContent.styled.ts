@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import mixins from "@/styles/mixins";
+
 export const StyledMainPageContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,8 +35,7 @@ export const MainContainer = styled.div`
   h1 {
     display: flex;
     flex-direction: column;
-    font-weight: bold;
-    font-size: 32px;
+    ${mixins.textMixin({ $fontWeight: "bold", $fontSize: "font-32" })};
 
     @media (min-width: ${({ theme }) => theme.device.mobileL}) {
       font-size: 55px;
@@ -50,9 +51,7 @@ export const MainContainer = styled.div`
   }
 
   p {
-    color: ${({ theme }) => theme.colors.gray};
-    font-weight: 300;
-    font-size: 18px;
+    ${mixins.textMixin({ $fontWeight: "light", $color: "gray", $fontSize: "font-13" })};
     padding-top: 25px;
     padding-bottom: 60px;
 
@@ -67,7 +66,7 @@ export const FooterContainer = styled.div`
   flex-direction: column-reverse;
   align-items: flex-end;
   gap: 8px;
-  font-size: 13px;
+  font-size: ${({ theme }) => theme.fontSizes["font-13"]};
   font-weight: 400;
   padding: 16px;
 

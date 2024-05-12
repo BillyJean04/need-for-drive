@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { OrderItem } from "@/components/OrderInfo/components/OrderItem";
@@ -19,24 +20,30 @@ export function OrderInfo() {
 
   const { locationPagePath } = routesPathsNames;
 
+  const isButtonDisabled = nextPathname !== locationPagePath && !currentStepIsFilled;
+
+  const orderItem = useMemo(
+    () =>
+      Object.entries(orderInfo).map(([key, item], id) => {
+        if (typeof item === "object") {
+          return Object.entries(item).map(([subItemKey, subItem], subitemId) => (
+            <OrderItem key={subItemKey} step={orderInfoSteps[subitemId + 2]} item={subItem} />
+          ));
+        }
+        return <OrderItem key={key} step={orderInfoSteps[id]} item={item} />;
+      }),
+    [orderInfo],
+  );
+
   return (
     <StyledOrderInfo>
       <h3>Ваш заказ:</h3>
-      <div>
-        {Object.entries(orderInfo).map(([key, item], id) => {
-          if (typeof item === "object") {
-            return Object.entries(item).map(([subItemKey, subItem], subitemId) => (
-              <OrderItem key={subItemKey} step={orderInfoSteps[subitemId + 2]} item={subItem} />
-            ));
-          }
-          return <OrderItem key={key} step={orderInfoSteps[id]} item={item} />;
-        })}
-      </div>
+      <div>{orderItem}</div>
       <Button
         onClick={() => navigate(nextPathname)}
         $isLarge
         $color="lightGreen"
-        disabled={nextPathname !== locationPagePath && !currentStepIsFilled}
+        disabled={isButtonDisabled}
       >
         {buttonText}
       </Button>

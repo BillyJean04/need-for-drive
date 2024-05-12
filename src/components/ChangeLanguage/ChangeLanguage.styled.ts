@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import mixins from "@/styles/mixins";
+
 export const StyledChangeLanguageContainer = styled.div<{ $isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
@@ -19,11 +21,9 @@ export const StyledChangeLanguageContainer = styled.div<{ $isOpen?: boolean }>`
     background: none;
     border: 1px solid transparent;
     border-radius: 50%;
-    color: #0ec261;
-    font-size: 13px;
-    font-weight: 700;
     padding: 16px 12px;
     cursor: pointer;
+    ${mixins.textMixin({ $fontWeight: "bold", $color: "primary", $fontSize: "font-13" })};
 
     &:hover {
       color: ${({ theme }) => theme.colors.white};

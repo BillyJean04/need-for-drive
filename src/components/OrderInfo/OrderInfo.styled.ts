@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import mixins from "@/styles/mixins";
+
 export const StyledOrderInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,8 +22,7 @@ export const StyledOrderInfo = styled.div`
   }
 
   h3 {
-    font-size: 18px;
-    font-weight: bold;
+    ${mixins.textMixin({ $fontWeight: "bold", $fontSize: "font-18" })};
     align-self: flex-end;
   }
 
@@ -29,7 +30,7 @@ export const StyledOrderInfo = styled.div`
     padding: 32px 32px 32px 32px;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${({ theme }) => theme.device.laptopM}) {
     padding: 32px 32px 10px 32px;
   }
 `;

@@ -1,13 +1,13 @@
-export type CitiesApi = {
+export interface CitiesApi {
   data: {
     id: number;
     name: string;
     createdAt: Date;
     updatedAt: Date;
   }[];
-};
+}
 
-export type PointsApi = {
+export interface PointsApi {
   data: {
     id: number;
     name: string;
@@ -21,4 +21,4 @@ export type PointsApi = {
       updatedAt: Date;
     };
   };
-};
+}
