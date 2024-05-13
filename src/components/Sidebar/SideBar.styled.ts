@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledSidebar = styled.div`
+export const StyledSidebar = styled.div<{ $isMainPage: boolean }>`
   display: none;
   justify-content: flex-end;
   align-items: center;
@@ -8,7 +8,7 @@ export const StyledSidebar = styled.div`
   height: 100%;
   background-color: #151b1f;
   width: 64px;
-  position: fixed;
+  position: ${({ $isMainPage }) => ($isMainPage ? "fixed" : "relative")};
 
   @media (min-width: ${({ theme }) => theme.device.mobileL}) {
     display: flex;

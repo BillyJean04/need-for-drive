@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import mixins from "@/styles/mixins";
+
 export const StyledBurgerContainer = styled.div`
   z-index: 100;
   margin-left: 20px;
@@ -87,13 +89,10 @@ export const StyledMenu = styled.nav<{ $isOpen: boolean }>`
 
   span {
     display: inline-block;
-
     a {
       display: inline-block;
-      font-size: 22px;
+      ${mixins.textMixin({ $color: "white", $fontSize: "font-22" })};
       text-transform: uppercase;
-      font-weight: 500;
-      color: ${({ theme }) => theme.colors.white};
       text-decoration: none;
       transition: color 0.3s linear;
 

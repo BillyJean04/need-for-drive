@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import mixins from "@/styles/mixins";
+
 export const StyledMainPageSliderContainer = styled.div`
   display: none;
   overflow: hidden;
@@ -20,15 +22,11 @@ export const StyledMainPageSliderContent = styled.div`
   padding: 0 100px;
 
   h2 {
-    color: ${({ theme }) => theme.colors.white};
-    font-weight: 500;
-    font-size: 40px;
+    ${mixins.textMixin({ $color: "white", $fontSize: "font-40" })};
     padding-bottom: 8px;
   }
   p {
-    color: ${({ theme }) => theme.colors.lightGray};
-    font-weight: 300;
-    font-size: 24px;
+    ${mixins.textMixin({ $color: "lightGray", $fontWeight: "light", $fontSize: "font-24" })};
     padding-bottom: 34px;
   }
 `;

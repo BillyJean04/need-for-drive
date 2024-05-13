@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import MainPage from "@/pages/MainPage/MainPage";
-import OrderPage from "@/pages/OrderPage/OrderPage";
+import { OrderLayout } from "@/layouts";
+import { LocationPage, MainPage, ModelPage, OptionalPage, TotalPage } from "@/pages";
+import { routesPathsNames } from "@/utils/consts/routesPathsNames";
+
+const { locationPagePath, modelPagePath, optionalPagePath, totalPagePath } = routesPathsNames;
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +12,13 @@ export const router = createBrowserRouter([
     element: <MainPage />,
   },
   {
-    path: "/order",
-    element: <OrderPage />,
+    path: "/",
+    element: <OrderLayout />,
+    children: [
+      { path: locationPagePath, element: <LocationPage /> },
+      { path: modelPagePath, element: <ModelPage /> },
+      { path: optionalPagePath, element: <OptionalPage /> },
+      { path: totalPagePath, element: <TotalPage /> },
+    ],
   },
 ]);

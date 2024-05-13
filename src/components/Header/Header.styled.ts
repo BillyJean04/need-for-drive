@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
-export const StyledHeaderContainer = styled.div`
+import mixins from "@/styles/mixins";
+
+export const StyledHeaderContainer = styled.header<{ $isLayout?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
   gap: 8px;
   width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.device.mobileL}) {
+    padding: ${({ $isLayout }) => $isLayout && "32px 32px 32px 128px"};
+  }
 
   padding: 16px;
 
@@ -18,10 +24,10 @@ export const StyledHeaderContainer = styled.div`
     align-items: baseline;
   }
 
-  h2 {
-    color: ${({ theme }) => theme.colors.primary};
-    font-weight: bold;
-    font-size: 30px;
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    ${mixins.textMixin({ $fontWeight: "bold", $color: "primary", $fontSize: "font-30" })};
   }
 
   div {
@@ -30,7 +36,7 @@ export const StyledHeaderContainer = styled.div`
     gap: 7px;
 
     span {
-      color: ${({ theme }) => theme.colors.gray};
+      ${mixins.textMixin({ $color: "gray", $fontSize: "font-14" })};
     }
   }
 `;

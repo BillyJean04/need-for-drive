@@ -1,3 +1,9 @@
+$primary: #0EC261;
+$dark-primary: #0EC26133;
+$white: #fff;
+$lightGray: #EEEEEE;
+$gray: #999999;
+
 * {
   box-sizing: border-box;
   --swiper-navigation-sides-offset: 0px;
@@ -23,13 +29,24 @@ p {
   margin: 0;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+// the swiper library has inline styles so the keyword important is necessary
+
 .swiper-pagination-bullet {
-  background: #EEEEEE !important;
+  background: $white !important;
   opacity: 1 !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: #0EC261 !important;
+  background: $primary !important;
   opacity: 1 !important;
 }
 
@@ -39,11 +56,11 @@ p {
   top: 23px !important;
   background-color: transparent;
   padding: 30px;
-  color: white !important;
+  color: $white !important;
 }
 
 .swiper-button-next:hover {
-  background-color: rgba(14, 194, 97, 0.2);
+  background-color: $dark-primary;
 }
 
 .swiper-button-next:after {
@@ -51,11 +68,35 @@ p {
 }
 
 .swiper-button-prev:hover {
-  background-color: rgba(14, 194, 97, 0.2);
+  background-color: $dark-primary;
 }
 
 .swiper-button-prev:after {
   font-size: 20px !important;
+}
+
+.rbt-menu {
+  display: flex !important;
+  flex-direction: column;
+  background-color: $white;
+  border: 1px solid $lightGray;
+  padding: 8px;
+  z-index: 100;
+  gap: 6px;
+  overflow: scroll;
+
+  a {
+    color: $gray;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+input:disabled {
+  background-color: transparent;
 }
 
 
