@@ -8,8 +8,8 @@ import { Option } from "react-bootstrap-typeahead/types/types";
 
 import CloseButton from "@/assets/input-clear.svg";
 import { Map } from "@/components";
-import { locations } from "@/components/Map/consts/locations";
 import { useAppDispatch, useAppSelector } from "@/hooks";
+import { useFilteredCity } from "@/hooks/useFilteredCity";
 import {
   LocationPageContainer,
   StyledError,
@@ -24,6 +24,7 @@ import { fetcher } from "@/utils/fetcher";
 export function LocationPage() {
   const location = useAppSelector((state) => state.location);
   const [error, setError] = useState("");
+  const filteredCity = useFilteredCity();
 
   const pointTypeheadRef = useRef<Typeahead>(null);
 
@@ -39,11 +40,7 @@ export function LocationPage() {
     name,
   }));
 
-  const filteredLocation = locations.filter(
-    ({ location: locationItem }) => locationItem.name === location.city?.name,
-  );
-
-  const transformedLocationPoints = filteredLocation[0]?.location?.points.map((point) => ({
+  const transformedLocationPoints = filteredCity?.location?.points.map((point) => ({
     id: point.id,
     address: point.address,
   }));
@@ -58,7 +55,9 @@ export function LocationPage() {
   const handleSelectPoint = (selected: Option[]) => {
     const selectedPoint = selected[0] as { id: number; address: string };
 
-    dispatch(selected.length ? setPoint(selectedPoint) : deletePoint());
+    const point = filteredCity.location.points.filter((item) => item.id === selectedPoint?.id)[0];
+
+    dispatch(selected.length ? setPoint(point) : deletePoint());
   };
 
   return (
@@ -112,7 +111,7 @@ export function LocationPage() {
           </div>
         </StyledTypeheadContainer>
       </StyledInputsContainer>
-      <Map city={location?.city?.name} />
+      <Map />
     </LocationPageContainer>
   );
 }
