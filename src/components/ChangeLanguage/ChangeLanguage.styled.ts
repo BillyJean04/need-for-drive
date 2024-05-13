@@ -23,7 +23,7 @@ export const StyledChangeLanguageContainer = styled.div<{ $isOpen?: boolean }>`
     border-radius: 50%;
     padding: 16px 12px;
     cursor: pointer;
-    ${mixins.textMixin({ $fontWeight: "bold", $color: "primary", $fontSize: "font-13" })};
+    ${mixins.textMixin({ $fontWeight: 700, $color: "primary", $fontSize: "font-13" })};
 
     &:hover {
       color: ${({ theme }) => theme.colors.white};
