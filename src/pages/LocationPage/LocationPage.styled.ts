@@ -44,7 +44,7 @@ export const StyledTypeheadContainer = styled.div<{ $disabled?: boolean }>`
   }
 
   input {
-    cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "normal")};
+    cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "auto")};
     outline: none;
     ${mixins.textMixin({ $color: "black", $fontSize: "font-14" })};
     padding: 3px 8px;

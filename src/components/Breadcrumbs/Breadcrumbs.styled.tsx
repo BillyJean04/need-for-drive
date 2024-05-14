@@ -18,6 +18,10 @@ export const StyledBreadcrumbs = styled.nav`
     row-gap: 4px;
     flex-wrap: wrap;
     ${mixins.textMixin({ $fontWeight: 700, $color: "gray" })};
+
+    @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+      padding-left: 16px;
+    }
   }
 `;
 

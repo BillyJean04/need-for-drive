@@ -9,6 +9,7 @@ import { useAppSelector } from "@/hooks";
 import { useNavigateTo } from "@/hooks/useNavigateTo";
 import { useOrderDataIsFilled } from "@/hooks/useOrderDataFilled";
 import { getOrderInfoData } from "@/redux/store";
+import { formatPrice } from "@/utils";
 import { routesPathsNames } from "@/utils/consts/routesPathsNames";
 
 export function OrderInfo() {
@@ -16,6 +17,7 @@ export function OrderInfo() {
   const { nextPathname, buttonText } = useNavigateTo();
 
   const orderInfo = useAppSelector(getOrderInfoData);
+  const { priceMin, priceMax } = useAppSelector((state) => state.model);
   const currentStepIsFilled = useOrderDataIsFilled();
 
   const { locationPagePath } = routesPathsNames;
@@ -39,6 +41,7 @@ export function OrderInfo() {
     <StyledOrderInfo>
       <h3>Ваш заказ:</h3>
       <div>{orderItem}</div>
+      <div>{!!priceMin && `Цена: от ${formatPrice(priceMin)} до ${formatPrice(priceMax)} ₽`}</div>
       <Button
         onClick={() => navigate(nextPathname)}
         $isLarge
