@@ -41,11 +41,13 @@ export function OrderInfo() {
   const formatedPrice =
     priceMin && priceMax ? `от ${formatNumber(priceMin)} до ${formatNumber(priceMax)}` : 0;
 
+  const shouldShowPrice = pathname !== "/location" || !!Object.values(orderInfo)[1];
+
   return (
     <StyledOrderInfo>
       <h3>Ваш заказ:</h3>
       <div>{orderItem}</div>
-      <div>{pathname !== "/location" && `Цена: ${formatedPrice} ₽`}</div>
+      {shouldShowPrice && <div>{`Цена: ${formatedPrice} ₽`}</div>}
       <Button
         onClick={() => navigate(nextPathname)}
         $isLarge
