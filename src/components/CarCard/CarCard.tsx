@@ -11,8 +11,8 @@ import { formatPrice } from "@/utils";
 interface CarCardProps {
   id: number;
   name: string;
-  priceMax: number;
-  priceMin: number;
+  priceMax?: number;
+  priceMin?: number;
   imgSrc: string;
 }
 
@@ -26,15 +26,11 @@ export function CarCard({ id, name, priceMax, priceMin, imgSrc }: CarCardProps) 
     );
   };
 
-  const isPriceExist = !priceMin && "Цена не указана";
-
   return (
     <StyledCarCardContainer $isActive={id === model.id} onClick={handleClick}>
       <StyledTextContainer>
         <h4>{name}</h4>
-        <span>
-          {isPriceExist || formatPrice(priceMin)} - {formatPrice(priceMax)}
-        </span>
+        <span>{formatPrice(priceMin, priceMax)}</span>
       </StyledTextContainer>
       <StyledImageContainer>
         <img src={imgSrc ?? Placeholder} alt="car-img" />

@@ -26,6 +26,7 @@ export const StyledRadioButton = styled.input`
   outline: none;
   cursor: pointer;
   margin: 0;
+  transition: border-color linear 0.2s;
 
   &:checked {
     border: 3px solid ${({ theme }) => theme.colors.primary};

@@ -46,7 +46,7 @@ export const StyledCarsContainer = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   &::-webkit-scrollbar-thumb {

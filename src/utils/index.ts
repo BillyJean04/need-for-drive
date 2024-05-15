@@ -8,8 +8,14 @@ export function objectValuesIsFilled(object: string | Record<string, string | bo
   return firstThreeOptionsValues.every((value) => !!value);
 }
 
-export function formatPrice(price: number) {
-  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+export function formatNumber(number: number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+export function formatPrice(priceMin?: number, priceMax?: number) {
+  if (!priceMin || !priceMax) return "Цена не указана";
+
+  return `${formatNumber(priceMin)} - ${formatNumber(priceMax)}`;
 }
 
 export function createRenderArray(length: number) {

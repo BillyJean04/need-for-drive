@@ -26,13 +26,7 @@ const modelSlice = createSlice({
       ...state,
       ...action.payload,
     }),
-    deleteModel: () => ({
-      id: 0,
-      name: "",
-      priceMin: 0,
-      priceMax: 0,
-      img: "",
-    }),
+    deleteModel: () => initialState,
   },
 });
 
