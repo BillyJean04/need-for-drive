@@ -26,7 +26,7 @@ export const StyledMainPageSliderContent = styled.div`
     padding-bottom: 8px;
   }
   p {
-    ${mixins.textMixin({ $color: "lightGray", $fontWeight: "light", $fontSize: "font-24" })};
+    ${mixins.textMixin({ $color: "lightGray", $fontWeight: 300, $fontSize: "font-24" })};
     padding-bottom: 34px;
   }
 `;

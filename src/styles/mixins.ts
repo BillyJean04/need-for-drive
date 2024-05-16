@@ -3,7 +3,7 @@ import { css } from "styled-components";
 import { type theme } from "@/styles/theme";
 
 export interface TextMixinProps {
-  $fontWeight?: "light" | "regular" | "normal" | "bold";
+  $fontWeight?: 300 | 400 | 500 | 700;
   $color?: keyof typeof theme.colors;
   $fontSize?: keyof typeof theme.fontSizes;
 }

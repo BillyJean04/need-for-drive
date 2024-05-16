@@ -17,6 +17,7 @@ import {
   StyledTypeheadContainer,
 } from "@/pages/LocationPage/LocationPage.styled";
 import { deleteCity, deletePoint, setCity, setPoint } from "@/redux/slices/location/locationSlice";
+import { deleteModel } from "@/redux/slices/model/modelSlice";
 import { CitiesApi } from "@/types/api";
 import { Urls } from "@/utils/consts/urls";
 import { fetcher } from "@/utils/fetcher";
@@ -48,8 +49,14 @@ export function LocationPage() {
   const handleSelectCity = (selected: Option[]) => {
     const selectedCity = selected[0] as { id: number; name: string };
 
+    if (!selected.length) {
+      dispatch(deleteCity());
+      dispatch(deleteModel());
+    } else {
+      dispatch(setCity(selectedCity));
+    }
+
     setError("");
-    dispatch(selected.length ? setCity(selectedCity) : deleteCity());
   };
 
   const handleSelectPoint = (selected: Option[]) => {
@@ -57,7 +64,12 @@ export function LocationPage() {
 
     const point = filteredCity.location.points.filter((item) => item.id === selectedPoint?.id)[0];
 
-    dispatch(selected.length ? setPoint(point) : deletePoint());
+    if (!selected.length) {
+      dispatch(deletePoint());
+      dispatch(deleteModel());
+    } else {
+      dispatch(setPoint(point));
+    }
   };
 
   return (

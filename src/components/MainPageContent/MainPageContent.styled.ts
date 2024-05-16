@@ -35,7 +35,7 @@ export const MainContainer = styled.div`
   h1 {
     display: flex;
     flex-direction: column;
-    ${mixins.textMixin({ $fontWeight: "bold", $fontSize: "font-32" })};
+    ${mixins.textMixin({ $fontWeight: 700, $fontSize: "font-32" })};
 
     @media (min-width: ${({ theme }) => theme.device.mobileL}) {
       font-size: 55px;
@@ -51,7 +51,7 @@ export const MainContainer = styled.div`
   }
 
   p {
-    ${mixins.textMixin({ $fontWeight: "light", $color: "gray", $fontSize: "font-13" })};
+    ${mixins.textMixin({ $fontWeight: 300, $color: "gray", $fontSize: "font-13" })};
     padding-top: 25px;
     padding-bottom: 60px;
 

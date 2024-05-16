@@ -27,7 +27,7 @@ export const StyledHeaderContainer = styled.header<{ $isLayout?: boolean }>`
   a {
     cursor: pointer;
     text-decoration: none;
-    ${mixins.textMixin({ $fontWeight: "bold", $color: "primary", $fontSize: "font-30" })};
+    ${mixins.textMixin({ $fontWeight: 700, $color: "primary", $fontSize: "font-30" })};
   }
 
   div {

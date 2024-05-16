@@ -22,7 +22,7 @@ export const StyledOrderInfo = styled.div`
   }
 
   h3 {
-    ${mixins.textMixin({ $fontWeight: "bold", $fontSize: "font-18" })};
+    ${mixins.textMixin({ $fontWeight: 700, $fontSize: "font-18" })};
     align-self: flex-end;
   }
 

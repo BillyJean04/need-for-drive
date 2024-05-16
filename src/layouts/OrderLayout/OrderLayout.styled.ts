@@ -20,6 +20,7 @@ export const StyledOrderContentContainer = styled.div`
   max-width: 1376px;
   margin: 0 auto;
   height: 100%;
+  overflow: hidden;
 
   @media (min-width: ${({ theme }) => theme.device.tablet}) {
     flex-direction: row;
