@@ -54,3 +54,19 @@ export interface CarsApi {
     categoryId: Category;
   }[];
 }
+
+export interface RatesApi {
+  data: {
+    id: number;
+    price: string;
+    createdAt: Date;
+    updatedAt: Date;
+    rateTypeId: {
+      id: number;
+      name: string;
+      unit: string;
+      createdAt: Date;
+      updatedAt: Date;
+    };
+  }[];
+}

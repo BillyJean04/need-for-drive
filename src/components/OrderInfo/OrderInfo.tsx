@@ -19,6 +19,8 @@ export function OrderInfo() {
 
   const orderInfo = useAppSelector(getOrderInfoData);
   const { priceMin, priceMax } = useAppSelector((state) => state.model);
+  const price = useAppSelector((state) => state.optional.price);
+
   const currentStepIsFilled = useOrderDataIsFilled();
 
   const { locationPagePath } = routesPathsNames;
@@ -47,7 +49,9 @@ export function OrderInfo() {
     <StyledOrderInfo>
       <h3>Ваш заказ:</h3>
       <div>{orderItem}</div>
-      {shouldShowPrice && <div>{`Цена: ${formatedPrice} ₽`}</div>}
+      {shouldShowPrice && (
+        <div>{`Цена: ${price === 0 ? formatedPrice : formatNumber(price)} ₽`}</div>
+      )}
       <Button
         onClick={() => navigate(nextPathname)}
         $isLarge

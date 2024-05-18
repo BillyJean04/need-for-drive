@@ -69,6 +69,7 @@ export function ModelPage() {
             name={car.name}
             priceMin={car.priceMin}
             priceMax={car.priceMax}
+            colors={car.colors}
             imgSrc={car.thumbnail.path}
           />
         ))}
