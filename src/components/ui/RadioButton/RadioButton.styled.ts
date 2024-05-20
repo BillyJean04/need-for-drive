@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import mixins from "@/styles/mixins";
 
-export const StyledRadioButtonContainer = styled.div`
+export const StyledRadioButtonContainer = styled.div<{ $disabled?: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,7 +10,13 @@ export const StyledRadioButtonContainer = styled.div`
 
   label {
     ${mixins.textMixin({ $fontWeight: 300, $color: "gray", $fontSize: "font-14" })};
-    cursor: pointer;
+    color: ${({ theme, $disabled }) => $disabled && theme.colors.lightGray};
+    cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
+  }
+
+  input {
+    cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
+    border-color: ${({ theme, $disabled }) => $disabled && theme.colors.lightGray};
   }
 `;
 

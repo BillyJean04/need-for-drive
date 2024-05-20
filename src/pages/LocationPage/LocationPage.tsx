@@ -1,5 +1,3 @@
-import "react-bootstrap-typeahead/css/Typeahead.css";
-
 import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
 import { Typeahead as TypeaheadComponent } from "react-bootstrap-typeahead";
@@ -18,6 +16,7 @@ import {
 } from "@/pages/LocationPage/LocationPage.styled";
 import { deleteCity, deletePoint, setCity, setPoint } from "@/redux/slices/location/locationSlice";
 import { deleteModel } from "@/redux/slices/model/modelSlice";
+import { deleteAllOptions } from "@/redux/slices/optional/optionalSlice";
 import { CitiesApi } from "@/types/api";
 import { Urls } from "@/utils/consts/urls";
 import { fetcher } from "@/utils/fetcher";
@@ -52,6 +51,7 @@ export function LocationPage() {
     if (!selected.length) {
       dispatch(deleteCity());
       dispatch(deleteModel());
+      dispatch(deleteAllOptions());
     } else {
       dispatch(setCity(selectedCity));
     }
@@ -67,6 +67,7 @@ export function LocationPage() {
     if (!selected.length) {
       dispatch(deletePoint());
       dispatch(deleteModel());
+      dispatch(deleteAllOptions());
     } else {
       dispatch(setPoint(point));
     }

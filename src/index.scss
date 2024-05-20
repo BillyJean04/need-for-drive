@@ -1,8 +1,16 @@
+@import '../node_modules/react-datepicker/dist/react-datepicker.css';
+@import "../node_modules/swiper/swiper";
+@import "../node_modules/swiper/modules/navigation";
+@import "../node_modules/swiper/modules/pagination";
+@import "../node_modules/react-bootstrap-typeahead/css/Typeahead.css";
+
 $primary: #0EC261;
 $dark-primary: #0EC26133;
 $white: #fff;
 $lightGray: #EEEEEE;
 $gray: #999999;
+$black: #111518;
+$media-tablet: 768px;
 
 * {
   box-sizing: border-box;
@@ -38,25 +46,24 @@ li {
   list-style: none;
 }
 
-// the swiper library has inline styles so the keyword important is necessary
 
 .swiper-pagination-bullet {
-  background: $white !important;
-  opacity: 1 !important;
+  background: $white;
+  opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background: $primary !important;
-  opacity: 1 !important;
+  background: $primary;
+  opacity: 1;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  height: 100% !important;
-  top: 23px !important;
+  height: 100% ;
+  top: 23px;
   background-color: transparent;
   padding: 30px;
-  color: $white !important;
+  color: $white ;
 }
 
 .swiper-button-next:hover {
@@ -64,7 +71,7 @@ li {
 }
 
 .swiper-button-next:after {
-  font-size: 20px !important;
+  font-size: 20px;
 }
 
 .swiper-button-prev:hover {
@@ -100,3 +107,36 @@ input:disabled {
 }
 
 
+.react-datepicker__close-icon:after {
+  color: $black ;
+  border: none ;
+  background-color: transparent;
+  content: "✖";
+}
+
+
+.react-datepicker {
+  display: flex;
+  flex-direction: row;
+  @media (max-width: $media-tablet) {
+    flex-direction: column;
+  }
+}
+
+.react-datepicker__time-container {
+  @media (max-width: $media-tablet) {
+    width: 100%;
+  }
+}
+
+.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {
+  @media (max-width: $media-tablet) {
+    right: 2px;
+  }
+  right: 85px;
+
+}
+
+.react-datepicker__tab-loop {
+  position: absolute;
+}

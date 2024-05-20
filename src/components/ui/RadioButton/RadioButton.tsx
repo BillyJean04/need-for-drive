@@ -8,14 +8,15 @@ import {
 interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
   radioId: number;
   label: string;
+  disabled?: boolean;
 }
 
-export function RadioButton({ radioId, label, ...props }: RadioButtonProps) {
+export function RadioButton({ radioId, label, disabled = false, ...props }: RadioButtonProps) {
   const id = useId();
 
   return (
-    <StyledRadioButtonContainer>
-      <StyledRadioButton id={id} value={radioId} type="radio" {...props} />
+    <StyledRadioButtonContainer $disabled={disabled}>
+      <StyledRadioButton disabled={disabled} id={id} value={radioId} type="radio" {...props} />
       <label htmlFor={id}>{label}</label>
     </StyledRadioButtonContainer>
   );

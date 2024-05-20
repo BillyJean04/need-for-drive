@@ -7,6 +7,7 @@ export interface ModelSlice {
   name: string;
   priceMin: number;
   priceMax: number;
+  colors: string[];
   img: string;
 }
 
@@ -15,6 +16,7 @@ const initialState: ModelSlice = {
   name: "",
   priceMin: 0,
   priceMax: 0,
+  colors: [],
   img: "",
 };
 
