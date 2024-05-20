@@ -32,7 +32,7 @@ const initialState: OptionalSlice = {
   price: 0,
 };
 
-interface SetAdditionalOptionsPayload {
+interface AdditionalOptionsPayload {
   option: "isFullTank" | "isNeedChildChair" | "isRightWheel";
   value: boolean;
 }
@@ -56,7 +56,7 @@ const optionalSlice = createSlice({
     setRate: (state, action: PayloadAction<OptionalSlice["rate"]>) => {
       state.rate = { ...action.payload };
     },
-    setAdditionalOption: (state, { payload }: PayloadAction<SetAdditionalOptionsPayload>) => {
+    setAdditionalOption: (state, { payload }: PayloadAction<AdditionalOptionsPayload>) => {
       const { option, value } = payload;
 
       state[option] = !value;

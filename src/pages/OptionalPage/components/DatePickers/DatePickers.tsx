@@ -42,8 +42,8 @@ export function DatePickers() {
 
     if (date && dateTo) {
       const { days, hours, minutes } = calculateTimeDifference(date, new Date(dateTo));
-      dispatch(setDateFrom(date?.getTime() ?? 0));
-      dispatch(setDuration(`${days} ${hours} ${minutes}` ?? ""));
+      dispatch(setDateFrom(date?.getTime()));
+      dispatch(setDuration(`${days} ${hours} ${minutes}`));
     }
 
     dispatch(deleteAdditionalOptions());
@@ -53,9 +53,9 @@ export function DatePickers() {
   const handleChangeDateTo = (date: Date | null) => {
     if (dateFrom && date) {
       const { days, hours, minutes } = calculateTimeDifference(new Date(dateFrom), date);
-      dispatch(setDateTo(date?.getTime() ?? 0));
+      dispatch(setDateTo(date?.getTime()));
       dispatch(setPrice(minPrice));
-      dispatch(setDuration(`${days} ${hours} ${minutes}` ?? ""));
+      dispatch(setDuration(`${days} ${hours} ${minutes}`));
     } else {
       dispatch(setDateTo(date?.getTime() ?? 0));
       dispatch(setDuration(""));

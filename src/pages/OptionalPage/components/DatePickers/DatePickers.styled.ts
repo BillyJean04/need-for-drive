@@ -41,11 +41,4 @@ export const StyledDatePickerContainer = styled.div`
     border: none;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
   }
-
-  (.react-datepicker__close-icon:after) {
-    color: $black !important;
-    border: none !important;
-    background-color: transparent !important;
-    content: "✖" !important;
-  }
 `;

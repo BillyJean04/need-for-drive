@@ -5,7 +5,7 @@ import { RadioButton } from "@/components/ui/RadioButton";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setPrice, setRate } from "@/redux/slices/optional/optionalSlice";
 import { RatesApi } from "@/types/api";
-import { msInMonth, msInWeek } from "@/utils/consts/convertedTime";
+import { convertedTimes, msInMonth, msInWeek } from "@/utils/consts/convertedTime";
 import { Urls } from "@/utils/consts/urls";
 import { fetcher } from "@/utils/fetcher";
 
@@ -36,11 +36,7 @@ export function RateRadioButtons() {
     () =>
       rates?.data
         .sort((a, b) => Number(a.price) - Number(b.price))
-        .map((rateItem) => ({
-          id: rateItem.rateTypeId.id,
-          price: rateItem.price,
-          name: rateItem.rateTypeId.name,
-        })),
+        .map(({ price, rateTypeId: { id, name } }) => ({ id, price, name })),
     [rates?.data],
   );
 
@@ -54,14 +50,16 @@ export function RateRadioButtons() {
     <StyledOptionalRateContainer>
       <StyledOptionalLabel>Тариф</StyledOptionalLabel>
       <StyledRadioOptionalButtonsContainer>
-        {formatedRates?.map(({ id, name, price }) => (
+        {formatedRates?.map(({ id, name, price }, index) => (
           <RadioButton
             onChange={() => {
+              const totalDaysCount = Math.round(rentalDuration / convertedTimes[index]);
+
               dispatch(setPrice(Number(optionalPrice)));
               dispatch(setRate({ id, name }));
-              dispatch(setPrice(optionalPrice + Number(price)));
+              dispatch(setPrice(optionalPrice + Number(price) * totalDaysCount));
             }}
-            checked={id === rate.id ?? null}
+            checked={id === rate.id}
             disabled={disabledByRateTypeId[Number(id)]}
             radioId={id}
             key={id}
