@@ -15,8 +15,9 @@ export default function buildWebpack(options: BuildOptions): webpack.Configurati
     mode: mode ?? "development",
     entry: paths.entry,
     output: {
+      publicPath: "/",
       path: paths.output,
-      filename: "[name].[contenthash].js",
+      filename: "static/[name].[contenthash].js",
       clean: true,
     },
     plugins: buildPlugins(options),
