@@ -31,7 +31,7 @@ export const ConfirmModalButtons = styled.div`
   flex-direction: row;
   gap: 16px;
 
-  @media (max-width: 475px) {
+  @media (max-width: ${({ theme }) => theme.device.tablet}) {
     flex-direction: column;
   }
 `;

@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 
-import { Breadcrumbs, Header, Menu, OrderInfo, Sidebar } from "@/components";
+import { Breadcrumbs, Header, Menu, OrderInfo, OrderNumber, Sidebar } from "@/components";
 import { useGuard } from "@/hooks/useGuard";
+import { useOrderPage } from "@/hooks/useOrderPage";
 import {
   StyledOrderContentContainer,
   StyledOrderHeader,
@@ -10,6 +11,8 @@ import {
 } from "@/layouts/OrderLayout/OrderLayout.styled";
 
 export function OrderLayout() {
+  const { isOrderPage } = useOrderPage();
+
   useGuard();
 
   return (
@@ -20,7 +23,7 @@ export function OrderLayout() {
         <StyledOrderHeader>
           <Header />
         </StyledOrderHeader>
-        <Breadcrumbs />
+        {isOrderPage ? <OrderNumber /> : <Breadcrumbs />}
         <StyledOrderContentContainer>
           <Outlet />
           <OrderInfo />

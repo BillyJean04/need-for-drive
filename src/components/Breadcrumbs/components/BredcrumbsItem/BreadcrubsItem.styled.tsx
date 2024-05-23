@@ -5,7 +5,6 @@ export const StyledBreadcrumbsItem = styled(NavLink)<{
   $isFilled: boolean;
   $prevIsFilled: boolean;
   $isFirstItem: boolean;
-  $isOrderPage: boolean;
 }>`
   display: flex;
   text-decoration: none;
@@ -13,7 +12,6 @@ export const StyledBreadcrumbsItem = styled(NavLink)<{
   color: ${({ $isFilled, $prevIsFilled, theme, $isFirstItem }) =>
     $isFilled || $prevIsFilled || $isFirstItem ? theme.colors.black : theme.colors.gray};
 
-  pointer-events: ${({ $isFilled, $prevIsFilled, $isFirstItem, $isOrderPage }) =>
-    $isFilled || $prevIsFilled || $isFirstItem || $isOrderPage ? "auto" : "none"};
-  pointer-events: ${({ $isOrderPage }) => $isOrderPage && "none"};
+  pointer-events: ${({ $isFilled, $prevIsFilled, $isFirstItem }) =>
+    $isFilled || $prevIsFilled || $isFirstItem ? "auto" : "none"};
 `;

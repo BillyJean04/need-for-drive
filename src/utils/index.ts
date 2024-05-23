@@ -1,3 +1,5 @@
+import { theme } from "@/styles/theme";
+
 export function objectValuesIsFilled(object: string | Record<string, string | boolean>) {
   const options = Object.values(object ?? {});
   const optionsKeys = Object.keys(options);
@@ -37,3 +39,14 @@ export function calculateTimeDifference(dateFrom: Date, dateTo: Date) {
     minutes: minutes === 0 ? "" : `${minutes}м`,
   };
 }
+
+export const toastOptions = {
+  duration: 3000,
+  style: {
+    background: theme.colors.black,
+    color: theme.colors.white,
+  },
+  success: {
+    duration: 3000,
+  },
+};

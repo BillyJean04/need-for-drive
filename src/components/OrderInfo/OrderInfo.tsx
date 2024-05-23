@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
+import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { ConfirmModal } from "@/components/ConfirmModal";
@@ -35,14 +36,23 @@ export function OrderInfo() {
 
   const { locationPagePath, totalPagePath } = routesPathsNames;
 
-  const isButtonDisabled = nextPathname !== locationPagePath && !currentStepIsFilled;
+  const isButtonDisabled =
+    nextPathname !== locationPagePath &&
+    !currentStepIsFilled &&
+    pathname !== totalPagePath &&
+    !isOrderPage;
+
   const isTotalPage = pathname === totalPagePath;
 
   const dispatch = useAppDispatch();
 
   const { mutate: createOrder, isPending: isOrderCreating } = useMutation({
     mutationFn: (newOrder: string) => fetcher(Urls.order, { method: "POST", body: newOrder }),
-    onSuccess: (order) => navigate(`/order/${order?.data?.id}`),
+    onSuccess: (order) => {
+      toast.success("Заказ успешно создан");
+      navigate(`/order/${order?.data?.id}`);
+    },
+    onError: () => toast.error("Не удалось создать заказ"),
   });
   const { mutate: deleteOrder, isPending: isOrderDeleting } = useMutation({
     mutationFn: (id: string) => fetcher(Urls.order, { method: "DELETE", params: id }),
@@ -50,8 +60,10 @@ export function OrderInfo() {
       dispatch(deleteCity());
       dispatch(deleteModel());
       dispatch(deleteAllOptions());
+      toast.success("Заказ успешно отменен");
       navigate("/location");
     },
+    onError: () => toast.error("Не удалось удалить заказ"),
   });
 
   const orderItem = useMemo(
@@ -106,7 +118,7 @@ export function OrderInfo() {
           $isLarge
           $color={isOrderPage ? "red" : "lightGreen"}
           isLoading={isOrderDeleting}
-          disabled={isButtonDisabled && pathname !== totalPagePath && !isOrderPage}
+          disabled={isButtonDisabled}
         >
           {isOrderPage ? "Отменить" : buttonText}
         </Button>

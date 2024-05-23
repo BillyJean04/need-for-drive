@@ -7,4 +7,5 @@ export * from "./Map";
 export * from "./Menu";
 export * from "./OrderContent";
 export * from "./OrderInfo";
+export * from "./OrderNumber";
 export * from "./Sidebar";
