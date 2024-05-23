@@ -3,4 +3,5 @@ export const routesPathsNames = {
   modelPagePath: "/model",
   optionalPagePath: "/optional",
   totalPagePath: "/total",
+  orderPagePath: "/order/:orderId",
 };

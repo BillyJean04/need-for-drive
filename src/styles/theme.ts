@@ -28,6 +28,10 @@ export const theme = {
 
   hoverGradients: {
     lightGreen: "linear-gradient(90deg, rgba(11,147,74,1) 0%, rgba(2,110,71,1) 100%);",
+    red: "linear-gradient(90deg, rgba(120,77,27,1) 0%, rgba(177,12,81,0.75) 91%);",
+    green: "linear-gradient(90deg, rgba(11,147,74,1) 0%, rgba(2,110,71,1) 100%);",
+    blue: "linear-gradient(90deg, rgba(11,147,74,1) 0%, rgba(2,110,71,1) 100%);",
+    purple: "linear-gradient(90deg, rgba(11,147,74,1) 0%, rgba(2,110,71,1) 100%);",
   },
 
   device: {

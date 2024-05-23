@@ -1,14 +1,14 @@
-import { Header, Menu } from "@/components";
-import { StyledOrderPage } from "@/pages/OrderPage/OrderPage.styled";
+import { OrderContent } from "@/components";
+import { useOrderPageData } from "@/hooks/useOrderPageData";
+import { StyledOrderPageContainer } from "@/pages/OrderPage/OrderPage.styled";
 
-export default function OrderPage() {
+export function OrderPage() {
+  useOrderPageData();
+
   return (
-    <>
-      <Menu />
-      <StyledOrderPage>
-        <Header />
-        <span>Оформления заказа</span>
-      </StyledOrderPage>
-    </>
+    <StyledOrderPageContainer>
+      <h2>Ваш заказ подтверждён</h2>
+      <OrderContent />
+    </StyledOrderPageContainer>
   );
 }

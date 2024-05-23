@@ -27,7 +27,7 @@ export const StyledButton = styled.button<{
     width: 100%;
     height: 100%;
     background: ${({ $disabled, theme, $color }) =>
-      !$disabled && $color ? theme.hoverGradients.lightGreen : ""};
+      !$disabled && $color ? theme.hoverGradients[$color] : ""};
     opacity: 0;
     transition: opacity 0.3s;
     z-index: -1;

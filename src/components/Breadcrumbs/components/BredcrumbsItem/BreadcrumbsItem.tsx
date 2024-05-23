@@ -2,6 +2,7 @@ import { useMemo } from "react";
 
 import { StyledBreadcrumbsItem } from "@/components/Breadcrumbs/components/BredcrumbsItem/BreadcrubsItem.styled";
 import { useAppSelector } from "@/hooks";
+import { useOrderPage } from "@/hooks/useOrderPage";
 import { getOrderInfoData } from "@/redux/store";
 import { objectValuesIsFilled } from "@/utils";
 
@@ -15,6 +16,7 @@ export function BreadcrumbsItem({ name, href, index }: BreadcrumbsItemProps) {
   const orderInfo = useAppSelector(getOrderInfoData);
   const orderInfoIsObject = (propertyIndex: number) =>
     typeof Object.values(orderInfo)[propertyIndex] === "object";
+  const { isOrderPage } = useOrderPage();
 
   let currentStepIsFilled = !!Object.values(orderInfo)[index];
   const previousStepIsFilled = !!Object.values(orderInfo)[index - 1];
@@ -35,7 +37,8 @@ export function BreadcrumbsItem({ name, href, index }: BreadcrumbsItemProps) {
       })}
       $isFirstItem={index === 0}
       $prevIsFilled={orderInfoIsObject(index - 1) ? prevStepObjectIsFilled : previousStepIsFilled}
-      $isFilled={currentStepIsFilled}
+      $isFilled={currentStepIsFilled || isOrderPage}
+      $isOrderPage={isOrderPage}
       to={href}
     >
       {name}
