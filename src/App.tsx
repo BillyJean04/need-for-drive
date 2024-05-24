@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import { store } from "@/redux/store";
 import { router } from "@/routes";
 import { theme } from "@/styles/theme";
+import { toastOptions } from "@/utils";
 
 const queryClient = new QueryClient();
 
@@ -15,21 +16,7 @@ export default function App() {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
-          <Toaster
-            position="bottom-right"
-            reverseOrder={false}
-            gutter={8}
-            toastOptions={{
-              duration: 3000,
-              style: {
-                background: "#363636",
-                color: "#fff",
-              },
-              success: {
-                duration: 3000,
-              },
-            }}
-          />
+          <Toaster position="bottom-right" reverseOrder={false} toastOptions={toastOptions} />
           <RouterProvider router={router} />
         </ThemeProvider>
       </QueryClientProvider>

@@ -10,8 +10,8 @@ export const StyledBreadcrumbsItem = styled(NavLink)<{
   text-decoration: none;
 
   color: ${({ $isFilled, $prevIsFilled, theme, $isFirstItem }) =>
-    ($isFilled || $prevIsFilled || $isFirstItem ? theme.colors.black : theme.colors.gray)};
+    $isFilled || $prevIsFilled || $isFirstItem ? theme.colors.black : theme.colors.gray};
 
   pointer-events: ${({ $isFilled, $prevIsFilled, $isFirstItem }) =>
-    ($isFilled || $prevIsFilled || $isFirstItem ? "auto" : "none")};
+    $isFilled || $prevIsFilled || $isFirstItem ? "auto" : "none"};
 `;

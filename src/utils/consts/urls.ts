@@ -6,6 +6,7 @@ export enum Urls {
   cars = "/db/car",
   categories = "/db/category",
   rates = "/db/rate",
+  order = "/db/order",
 }
 
 export type Methods = "POST" | "GET" | "PUT" | "DELETE" | "PATCH";
